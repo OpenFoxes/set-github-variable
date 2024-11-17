@@ -3,40 +3,36 @@ import { Octokit } from '@octokit/core';
 import fetch from 'node-fetch';
 
 async function run() {
-    try {
-        const parameters = {
-            name: getInput('name'),
-            value: getInput('value'),
-            repository: getInput('repository'),
-            token: getInput('token'),
-            logOldValue: getBooleanInput('logOldValue'),
-            org: getInput('org'),
-            base: getInput('org') ? 'orgs' : 'repos',
-            visibility: getInput('visibility'),
-            selectedRepositoryIds: getInput('selectedRepositoryIds')
-        };
+    const parameters = {
+        name: getInput('name'),
+        value: getInput('value'),
+        repository: getInput('repository'),
+        token: getInput('token'),
+        logOldValue: getBooleanInput('logOldValue'),
+        org: getInput('org'),
+        base: getInput('org') ? 'orgs' : 'repos',
+        visibility: getInput('visibility'),
+        selectedRepositoryIds: getInput('selectedRepositoryIds')
+    };
 
-        let oldValue;
+    let oldValue;
+    if(parameters.logOldValue){
+        oldValue = (await getVariable(parameters)).data.value;
+    }
+
+    const response = await updateVariable(parameters);
+
+    if (response.status < 400) {
+        setOutput('data', response.data);
+        setOutput('status', response.status);
+
         if(parameters.logOldValue){
-            oldValue = (await getVariable(parameters)).data.value;
-        }
-
-        const response = await updateVariable(parameters);
-
-        if (response.status < 400) {
-            setOutput('data', response.data);
-            setOutput('status', response.status);
-
-            if(parameters.logOldValue){
-                info(`Value of the variable ${parameters.name} changed from ${oldValue} to ${parameters.value}`);
-            } else {
-                info(`Value of the variable ${parameters.name} changed to ${parameters.value}`);
-            }
+            info(`Value of the variable ${parameters.name} changed from ${oldValue} to ${parameters.value}`);
         } else {
-            throw new Error(`Errorcode ${response.status} on updating the variable`).cause({ message: response.data, status: response.status });
+            info(`Value of the variable ${parameters.name} changed to ${parameters.value}`);
         }
-    } catch (error) {
-        handleError(error);
+    } else {
+        handleError(Error(`Errorcode ${response.status} on updating the variable`).cause({ message: response.data, status: response.status }));
     }
 }
 
