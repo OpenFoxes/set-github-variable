@@ -1,6 +1,9 @@
-name: 'Set Github Variable'
-author: Manuel Moya
-description: 'Update variables for github repository/org'
+name: 'Set Github Variable by Open Foxes'
+author: Open Foxes
+description: 'Update Github variables from within actions'
+branding:
+    icon: refresh-cw
+    color: green
 
 inputs:
     name:
@@ -12,7 +15,7 @@ inputs:
         required: true
 
     repository:
-        description: Repository name, with format "<organization>/<repository>" i.e "mmoyaferrer/set-github-variable"
+        description: Repository name, with format "<organization>/<repository>" i.e "OpenFoxes/set-github-variable"
         default: ${{ github.repository }}
         required: true
 
@@ -21,7 +24,7 @@ inputs:
         required: true
 
     org:
-        description: Only in case of Org-scope variable, specifies the Organization name,
+        description: Only in case of Org-scope variable, specifies if the variable belongs to an organization
         required: false
 
     visibility:
