@@ -40,5 +40,5 @@ outputs:
         description: Response data
 
 runs:
-    using: 'node12'
+    using: 'node20'
     main: 'src/index.js'
