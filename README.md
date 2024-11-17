@@ -38,7 +38,7 @@ It does not require to do `checkout` and it's independent on the Github runner/d
 The following are required
 
 | Name          | Type    | Description                                                                                                     |
-|---------------|---------|-----------------------------------------------------------------------------------------------------------------|
+| ------------- | ------- | --------------------------------------------------------------------------------------------------------------- |
 | `name`        | String  | Variable name                                                                                                   |
 | `value`       | String  | Variable value                                                                                                  |
 | `repository`  | String  | Repository name, with format `<organization>/<repository>` i.e `mmoyaferrer/set-github-variable`                |

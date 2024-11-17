@@ -16,7 +16,7 @@ async function run() {
     };
 
     let oldValue;
-    if(parameters.logOldValue){
+    if (parameters.logOldValue) {
         oldValue = (await getVariable(parameters)).data.value;
     }
 
@@ -26,13 +26,18 @@ async function run() {
         setOutput('data', response.data);
         setOutput('status', response.status);
 
-        if(parameters.logOldValue){
+        if (parameters.logOldValue) {
             info(`Value of the variable ${parameters.name} changed from ${oldValue} to ${parameters.value}`);
         } else {
             info(`Value of the variable ${parameters.name} changed to ${parameters.value}`);
         }
     } else {
-        handleError(Error(`Errorcode ${response.status} on updating the variable`).cause({ message: response.data, status: response.status }));
+        handleError(
+            Error(`Errorcode ${response.status} on updating the variable`).cause({
+                message: response.data,
+                status: response.status
+            })
+        );
     }
 }
 
