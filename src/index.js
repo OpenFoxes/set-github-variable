@@ -1,4 +1,4 @@
-import { getInput, setOutput, setFailed } from '@actions/core';
+import { getInput, setOutput, setFailed, info } from '@actions/core';
 import { Octokit } from '@octokit/core';
 import fetch from 'node-fetch';
 
@@ -20,6 +20,8 @@ async function run() {
         if (response.status < 400) {
             setOutput('data', response.data);
             setOutput('status', response.status);
+
+            info(`Value of the variable ${parameters.name} changed to ${parameters.value}`);
         } else {
             throw { message: response.data, status: response.status };
         }
