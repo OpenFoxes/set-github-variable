@@ -1,4 +1,4 @@
-name: 'Set Github Variable by Open Foxes'
+name: 'Update Github Variable'
 author: Open Foxes
 description: 'Update Github variables from within actions'
 branding:
