@@ -1,7 +1,7 @@
 {
     "name": "set-github-variable",
-    "version": "1.0.0",
-    "repository": "https://github.com/mmoyaferrer/set-github-variable",
+    "version": "1.1.0",
+    "repository": "https://github.com/OpenFoxes/set-github-variable",
     "license": "MIT License",
     "type": "module",
     "dependencies": {
