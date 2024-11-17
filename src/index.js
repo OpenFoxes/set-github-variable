@@ -1,4 +1,4 @@
-import { getInput, setOutput, setFailed, info } from '@actions/core';
+import { getInput, setOutput, setFailed, info, getBooleanInput } from '@actions/core';
 import { Octokit } from '@octokit/core';
 import fetch from 'node-fetch';
 
@@ -9,11 +9,17 @@ async function run() {
             value: getInput('value'),
             repository: getInput('repository'),
             token: getInput('token'),
+            logOldValue: getBooleanInput('logOldValue'),
             org: getInput('org'),
             base: getInput('org') ? 'orgs' : 'repos',
             visibility: getInput('visibility'),
             selectedRepositoryIds: getInput('selectedRepositoryIds')
         };
+
+        let oldValue;
+        if(parameters.logOldValue){
+            oldValue = (await getVariable(parameters)).data.value;
+        }
 
         const response = await updateVariable(parameters);
 
@@ -21,7 +27,11 @@ async function run() {
             setOutput('data', response.data);
             setOutput('status', response.status);
 
-            info(`Value of the variable ${parameters.name} changed to ${parameters.value}`);
+            if(parameters.logOldValue){
+                info(`Value of the variable ${parameters.name} changed from ${oldValue} to ${parameters.value}`);
+            } else {
+                info(`Value of the variable ${parameters.name} changed to ${parameters.value}`);
+            }
         } else {
             throw { message: response.data, status: response.status };
         }
@@ -41,6 +51,19 @@ function updateVariable(parameters) {
     return octokit.request(`PATCH /${parameters.base}/${parameters.repository}/actions/variables/${parameters.name}`, {
         value: parameters.value,
         selected_repository_ids: parameters.selectedRepositoryIds,
+        visibility: parameters.visibility
+    });
+}
+
+function getVariable(parameters) {
+    const octokit = new Octokit({
+        auth: parameters.token,
+        request: {
+            fetch: fetch
+        }
+    });
+
+    return octokit.request(`GET /${parameters.base}/${parameters.repository}/actions/variables/${parameters.name}`, {
         visibility: parameters.visibility
     });
 }

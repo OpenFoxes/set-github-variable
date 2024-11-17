@@ -23,6 +23,11 @@ inputs:
         description: Repository access token (Personal Access Token or Organization Token)
         required: true
 
+    logOldValue:
+        description: Whether to log the previous value on running or not
+        required: false
+        default: 'true'
+
     org:
         description: Only in case of Org-scope variable, specifies if the variable belongs to an organization
         required: false
