@@ -33,7 +33,7 @@ async function run() {
                 info(`Value of the variable ${parameters.name} changed to ${parameters.value}`);
             }
         } else {
-            throw { message: response.data, status: response.status };
+            throw new Error(`Errorcode ${response.status} on updating the variable`).cause({ message: response.data, status: response.status });
         }
     } catch (error) {
         handleError(error);
