@@ -2,7 +2,7 @@
   📦
 </div>
 <h1 align="center">
-  set-github-variable
+  update-github-variable
 </h1>
 
 <p align="center">
@@ -16,11 +16,11 @@
 Updates [Github Variable](https://docs.github.com/en/actions/learn-github-actions/variables#creating-configuration-variables-for-a-repository) for a repository or organization.
 
 ```YAML
-- uses: mmoyaferrer/set-github-variable@v1.0.0
+- uses: openfoxes/update-github-variable@v1.0.0
   with:
       name: 'SAMPLE_VAR'
       value: 'Hello World'
-      repository: mmoyaferrer/set-github-variable
+      repository: openfoxes/update-github-variable
       token: ${{ secrets.REPO_ACCESS_TOKEN }}
 ```
 
