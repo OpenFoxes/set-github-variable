@@ -16,7 +16,7 @@
 Updates [Github Variable](https://docs.github.com/en/actions/learn-github-actions/variables#creating-configuration-variables-for-a-repository) for a repository or organization.
 
 ```YAML
-- uses: openfoxes/set-github-variable@v1.1.2
+- uses: openfoxes/set-github-variable@v1.2.0
   with:
       name: 'SAMPLE_VAR'
       value: 'Hello World'
@@ -37,12 +37,13 @@ It does not require to do `checkout` and it's independent on the Github runner/d
 
 The following are required
 
-| Name         | Type   | Description                                                                                                     |
-| ------------ | ------ | --------------------------------------------------------------------------------------------------------------- |
-| `name`       | String | Variable name                                                                                                   |
-| `value`      | String | Variable value                                                                                                  |
-| `repository` | String | Repository name, with format `<organization>/<repository>` i.e `mmoyaferrer/set-github-variable`                |
-| `token`      | String | [Repository Token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) |
+| Name          | Type    | Description                                                                                                     |
+|---------------|---------|-----------------------------------------------------------------------------------------------------------------|
+| `name`        | String  | Variable name                                                                                                   |
+| `value`       | String  | Variable value                                                                                                  |
+| `repository`  | String  | Repository name, with format `<organization>/<repository>` i.e `mmoyaferrer/set-github-variable`                |
+| `token`       | String  | [Repository Token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) |
+| `logOldValue` | Boolean | Enables/Disables logging of the previous variable value                                                         |
 
 The following are optional, to be provided when the value is Org scoped instead of a repository variable:
 
