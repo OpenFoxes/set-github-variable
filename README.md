@@ -2,18 +2,22 @@
   📦
 </div>
 <h1 align="center">
-  set-github-variable
+    set-github-variable
 </h1>
 
 <p align="center">
    A GitHub Action for updating Github Variables
 </p>
 
+<p align="center">
+   Version 1.2.1
+</p>
+
 <br />
 
 ## Information
 
-With this Github Action you are able to **modify Repository Variables** right from your *Github Workflow*.
+With this Github Action you are able to **modify Repository Variables** right from your _Github Workflow_.
 It is very easy to integrate in your project, just take a look at the "Usage"-section.
 
 ### Code Quality
@@ -29,7 +33,7 @@ It is very easy to integrate in your project, just take a look at the "Usage"-se
 Updates [Github Variable](https://docs.github.com/en/actions/learn-github-actions/variables#creating-configuration-variables-for-a-repository) for a repository or organization.
 
 ```YAML
-- uses: openfoxes/set-github-variable@v1.2.0
+- uses: openfoxes/set-github-variable@v1.2.1
   with:
       name: 'SAMPLE_VAR'
       value: 'Hello World'
@@ -54,7 +58,7 @@ The following are required
 | ------------- | ------- | --------------------------------------------------------------------------------------------------------------- |
 | `name`        | String  | Variable name                                                                                                   |
 | `value`       | String  | Variable value                                                                                                  |
-| `repository`  | String  | Repository name, with format `<organization>/<repository>` i.e `mmoyaferrer/set-github-variable`                |
+| `repository`  | String  | Repository name, with format `<organization>/<repository>` i.e `openfoxes/set-github-variable`                  |
 | `token`       | String  | [Repository Token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) |
 | `logOldValue` | Boolean | Enables/Disables logging of the previous variable value                                                         |
 

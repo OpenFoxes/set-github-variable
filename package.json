@@ -21,7 +21,8 @@
     },
     "scripts": {
         "lint": "eslint .",
-        "format-all": "prettier -w ."
+        "format-all": "prettier -w .",
+        "generate-readme": "run-func src/generate-readme.js generateReadme"
     },
     "husky": {
         "hooks": {
