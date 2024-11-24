@@ -32,6 +32,7 @@ jobs:
                   git init
                   git add .
                   git commit -m "📝 Documented update to ${{  github.ref_name }}"
+                  git branch -m main
                   git push -u origin main
 
     test:
