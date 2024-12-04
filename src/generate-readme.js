@@ -1,19 +1,17 @@
 import * as fs from 'fs';
 
 export const generateReadme = (version) => {
-    if (!version || !/^v\d+\.\d+\.\d+$/.test(version)) {
+    if (!version || !/^\d+\.\d+\.\d+$/.test(version)) {
         console.error('Semantic version number expected!');
     }
 
-    const semVer = version.substring(1);
-
-    const readme = `${generateHeader(semVer)}
+    const readme = `${generateHeader(version)}
 
 ${generateInfo()}
 
 ${generateCodeQuality()}
 
-${generateUsage(semVer)}
+${generateUsage(version)}
 
 ${generatePreRequieries()}
 

@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-   Version .3.1
+   Version 1.3.1
 </p>
 
 <br />
@@ -33,7 +33,7 @@ It is very easy to integrate in your project, just take a look at the "Usage"-se
 Updates [Github Variable](https://docs.github.com/en/actions/learn-github-actions/variables#creating-configuration-variables-for-a-repository) for a repository or organization.
 
 ```YAML
-- uses: openfoxes/set-github-variable@v.3.1
+- uses: openfoxes/set-github-variable@v1.3.1
   with:
       name: 'SAMPLE_VAR'
       value: 'Hello World'
