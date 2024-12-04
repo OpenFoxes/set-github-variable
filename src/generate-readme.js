@@ -3,6 +3,8 @@ import * as fs from 'fs';
 export const generateReadme = (version) => {
     if (!version || !/^\d+\.\d+\.\d+$/.test(version)) {
         console.error('Semantic version number expected!');
+
+        return;
     }
 
     const readme = `${generateHeader(version)}
