@@ -11,8 +11,6 @@ export const generateReadme = (version) => {
 
 ${generateInfo()}
 
-${generateCodeQuality()}
-
 ${generateUsage(version)}
 
 ${generatePreRequieries()}
@@ -20,6 +18,8 @@ ${generatePreRequieries()}
 ${generateCustomizing()}
 
 ${generateDevelopment()}
+
+${generateCodeQuality()}
 `;
 
     try {

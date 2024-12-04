@@ -20,21 +20,6 @@
 With this Github Action you are able to **modify Repository Variables** right from your _Github Workflow_.
 It is very easy to integrate in your project, just take a look at the "Usage"-section.
 
-### Code Quality
-
-This project aims to provide a clean and secure design.
-In order to optimize the underlying code and reducing the risk of bugs, quality tools are used:
-
-<p align="center">
-    <a href="https://sonarcloud.io/summary/new_code?id=OpenFoxes_set-github-variable"><img src="https://sonarcloud.io/api/project_badges/quality_gate?project=OpenFoxes_set-github-variable" alt="Quality gate" /></a>
-</p>
-
-<p align="center">
-    <a href="https://sonarcloud.io/summary/new_code?id=OpenFoxes_set-github-variable"><img src="https://sonarcloud.io/api/project_badges/measure?project=OpenFoxes_set-github-variable&metric=bugs" alt="Bugs" /></a>
-    <a href="https://sonarcloud.io/summary/new_code?id=OpenFoxes_set-github-variable"><img src="https://sonarcloud.io/api/project_badges/measure?project=OpenFoxes_set-github-variable&metric=code_smells" alt="Code Smells" /></a>
-    <a href="https://sonarcloud.io/summary/new_code?id=OpenFoxes_set-github-variable"><img src="https://sonarcloud.io/api/project_badges/measure?project=OpenFoxes_set-github-variable&metric=duplicated_lines_density" alt="Duplicated Lines (%)" /></a>
-</p>
-
 ## Usage
 
 Updates [Github Variable](https://docs.github.com/en/actions/learn-github-actions/variables#creating-configuration-variables-for-a-repository) for a repository or organization.
@@ -92,3 +77,18 @@ This repository is based on https://github.com/mmoyaferrer/set-github-variable.
 It should be kept up to date, so feel free to open issues or suggest solutions.
 This fork is intended as a progression on the original repository and will be developed in parallel.
 I will try to keep it based on the original one, if there are any updates.
+
+### Code Quality
+
+This project aims to provide a clean and secure design.
+In order to optimize the underlying code and reducing the risk of bugs, quality tools are used:
+
+<p align="center">
+    <a href="https://sonarcloud.io/summary/new_code?id=OpenFoxes_set-github-variable"><img src="https://sonarcloud.io/api/project_badges/quality_gate?project=OpenFoxes_set-github-variable" alt="Quality gate" /></a>
+</p>
+
+<p align="center">
+    <a href="https://sonarcloud.io/summary/new_code?id=OpenFoxes_set-github-variable"><img src="https://sonarcloud.io/api/project_badges/measure?project=OpenFoxes_set-github-variable&metric=bugs" alt="Bugs" /></a>
+    <a href="https://sonarcloud.io/summary/new_code?id=OpenFoxes_set-github-variable"><img src="https://sonarcloud.io/api/project_badges/measure?project=OpenFoxes_set-github-variable&metric=code_smells" alt="Code Smells" /></a>
+    <a href="https://sonarcloud.io/summary/new_code?id=OpenFoxes_set-github-variable"><img src="https://sonarcloud.io/api/project_badges/measure?project=OpenFoxes_set-github-variable&metric=duplicated_lines_density" alt="Duplicated Lines (%)" /></a>
+</p>
