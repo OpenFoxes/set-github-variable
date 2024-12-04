@@ -60,11 +60,18 @@ It is very easy to integrate in your project, just take a look at the "Usage"-se
 const generateCodeQuality = () => {
     return `### Code Quality
 
-[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=OpenFoxes_set-github-variable)](https://sonarcloud.io/summary/new_code?id=OpenFoxes_set-github-variable)
+This project aims to provide a clean and secure design.
+In order to optimize the underlying code and reducing the risk of bugs, quality tools are used:
 
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=OpenFoxes_set-github-variable&metric=bugs)](https://sonarcloud.io/summary/new_code?id=OpenFoxes_set-github-variable)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=OpenFoxes_set-github-variable&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=OpenFoxes_set-github-variable)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=OpenFoxes_set-github-variable&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=OpenFoxes_set-github-variable)`;
+<p align="center">
+    <a href="https://sonarcloud.io/summary/new_code?id=OpenFoxes_set-github-variable"><img src="https://sonarcloud.io/api/project_badges/quality_gate?project=OpenFoxes_set-github-variable" alt="Quality gate" /></a>
+</p>
+
+<p align="center">
+    <a href="https://sonarcloud.io/summary/new_code?id=OpenFoxes_set-github-variable"><img src="https://sonarcloud.io/api/project_badges/measure?project=OpenFoxes_set-github-variable&metric=bugs" alt="Bugs" /></a>
+    <a href="https://sonarcloud.io/summary/new_code?id=OpenFoxes_set-github-variable"><img src="https://sonarcloud.io/api/project_badges/measure?project=OpenFoxes_set-github-variable&metric=code_smells" alt="Code Smells" /></a>
+    <a href="https://sonarcloud.io/summary/new_code?id=OpenFoxes_set-github-variable"><img src="https://sonarcloud.io/api/project_badges/measure?project=OpenFoxes_set-github-variable&metric=duplicated_lines_density" alt="Duplicated Lines (%)" /></a>
+</p>`;
 };
 
 const generateUsage = (version) => {
