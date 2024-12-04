@@ -8,6 +8,7 @@ async function run() {
         value: getInput('value'),
         repository: getInput('repository'),
         token: getInput('token'),
+        logLevel: getInput('logLevel'),
         logOldValue: getBooleanInput('logOldValue'),
         org: getInput('org'),
         base: getInput('org') ? 'orgs' : 'repos',
@@ -17,14 +18,29 @@ async function run() {
 
     let oldValue;
     if (parameters.logOldValue) {
+        if (parameters.logLevel === 'VERBOSE') {
+            console.log('Extracting old value …');
+        }
+
         oldValue = (await getVariable(parameters)).data.value;
+
+        if (parameters.logLevel === 'VERBOSE') {
+            console.log(`Old value found: ${oldValue}`);
+        }
     }
 
+    if (parameters.logLevel === 'VERBOSE') {
+        console.log(`Updating variable ${parameters.name} to ${parameters.value} …`);
+    }
     const response = await updateVariable(parameters);
 
     if (response.status < 400) {
         setOutput('data', response.data);
         setOutput('status', response.status);
+
+        if (parameters.logLevel === 'NONE') {
+            return;
+        }
 
         if (parameters.logOldValue) {
             info(`Value of the variable ${parameters.name} changed from ${oldValue} to ${parameters.value}`);
@@ -45,7 +61,7 @@ function updateVariable(parameters) {
     const octokit = new Octokit({
         auth: parameters.token,
         request: {
-            fetch: fetch
+            fetch
         }
     });
 
@@ -60,7 +76,7 @@ function getVariable(parameters) {
     const octokit = new Octokit({
         auth: parameters.token,
         request: {
-            fetch: fetch
+            fetch
         }
     });
 
