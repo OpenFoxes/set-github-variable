@@ -1,9 +1,12 @@
 name: Create Release
 
 on:
-    push:
-        tags:
-            - 'v*.*.*'
+    workflow_dispatch:
+        inputs:
+            version:
+                description: 'Version (SemVer)'
+                required: true
+                default: 0.0.0
 
 jobs:
     set-version:
@@ -16,11 +19,8 @@ jobs:
                   fetch-depth: 0
                   token: ${{ secrets.BOT_TOKEN }}
 
-            - name: Extract version from Git tag
-              run: echo "SEMVER=${GITHUB_REF_NAME#v}" >> $GITHUB_ENV
-
             - name: Update package version
-              run: yarn version --no-git-tag-version --new-version $SEMVER
+              run: yarn version --no-git-tag-version --new-version ${{  github.ref_name }}
 
             - name: Update README
               run: yarn run generate-readme ${{  github.ref_name }}
@@ -31,8 +31,9 @@ jobs:
                   git config --global user.email 'openfoxes@bono-fox.de'
                   git init
                   git add .
-                  git commit -m "📝 Documented update to ${{  github.ref_name }}"
-                  git push -u origin HEAD:main
+                  git commit -m "🔖 Release ${{  github.ref_name }}" -m "- Updated documentation"
+                  git tag v${{  github.ref_name }}
+                  git push -u origin HEAD:main --tags
 
     test:
         name: Run tests
@@ -60,3 +61,5 @@ jobs:
             - uses: softprops/action-gh-release@v2
               with:
                   token: ${{ secrets.ACTION_TOKEN }}
+                  name: Version ${{  github.ref_name }}
+                  tag_name: v${{  github.ref_name }}
