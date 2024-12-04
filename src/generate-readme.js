@@ -47,6 +47,10 @@ const generateHeader = (version) => {
    Version ${version}
 </p>
 
+<p align="center">
+    <a href="https://sonarcloud.io/summary/new_code?id=OpenFoxes_set-github-variable"><img src="https://sonarcloud.io/api/project_badges/quality_gate?project=OpenFoxes_set-github-variable" alt="Quality gate" /></a>
+</p>
+
 <br />`;
 };
 
