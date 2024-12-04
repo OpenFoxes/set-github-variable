@@ -109,13 +109,14 @@ const generateCustomizing = () => {
 
 Inputs marked as "Required" must be set.
 
-| Name          | Type    | Required | Default | Description                                                                                                     |
-| ------------- | ------- | -------- | ------- | --------------------------------------------------------------------------------------------------------------- |
-| \`name\`        | String  | Yes      |         | Variable name                                                                                                   |
-| \`value\`       | String  | Yes      |         | Variable value                                                                                                  |
-| \`repository\`  | String  | Yes      |         | Repository name, with format \`<organization>/<repository>\` i.e \`openfoxes/set-github-variable\`                  |
-| \`token\`       | String  | Yes      |         | [Repository Token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) |
-| \`logOldValue\` | Boolean | No       | \`true\`  | Enables/Disables logging of the previous variable value                                                         |
+| Name          | Type                     | Required | Default | Description                                                                                                     |
+| ------------- | ------------------------ | -------- | ------- | --------------------------------------------------------------------------------------------------------------- |
+| \`name\`        | String                   | Yes      |         | Variable name                                                                                                   |
+| \`value\`       | String                   | Yes      |         | Variable value                                                                                                  |
+| \`repository\`  | String                   | Yes      |         | Repository name, with format \`<organization>/<repository>\` i.e \`openfoxes/set-github-variable\`                  |
+| \`token\`       | String                   | Yes      |         | [Repository Token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) |
+| \`logLevel\`    | Enum [NONE/INFO/VERBOSE] | No       | \`INFO\`  | Granularity of log messages. \`None\` disables the logging.                                                       |
+| \`logOldValue\` | Boolean                  | No       | \`true\`  | Enables/Disables logging of the previous variable value                                                         |
 
 The following are to be provided when the value is Org scoped instead of a repository variable:
 

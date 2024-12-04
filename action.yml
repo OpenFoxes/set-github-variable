@@ -23,6 +23,11 @@ inputs:
         description: Repository access token (Personal Access Token or Organization Token)
         required: true
 
+    logLevel:
+        description: Granularity of log messages (NONE | INFO | VERBOSE)
+        required: false
+        default: INFO
+
     logOldValue:
         description: Whether to log the previous value on running or not
         required: false
