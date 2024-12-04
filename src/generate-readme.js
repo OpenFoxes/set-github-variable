@@ -96,17 +96,17 @@ const generateCustomizing = () => {
 
 #### inputs
 
-The following are required
+Inputs marked as "Required" must be set.
 
-| Name          | Type    | Description                                                                                                     |
-| ------------- | ------- | --------------------------------------------------------------------------------------------------------------- |
-| \`name\`        | String  | Variable name                                                                                                   |
-| \`value\`       | String  | Variable value                                                                                                  |
-| \`repository\`  | String  | Repository name, with format \`<organization>/<repository>\` i.e \`openfoxes/set-github-variable\`                  |
-| \`token\`       | String  | [Repository Token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) |
-| \`logOldValue\` | Boolean | Enables/Disables logging of the previous variable value                                                         |
+| Name          | Type    | Required | Default | Description                                                                                                     |
+| ------------- | ------- | -------- | ------- | --------------------------------------------------------------------------------------------------------------- |
+| \`name\`        | String  | Yes      |         | Variable name                                                                                                   |
+| \`value\`       | String  | Yes      |         | Variable value                                                                                                  |
+| \`repository\`  | String  | Yes      |         | Repository name, with format \`<organization>/<repository>\` i.e \`openfoxes/set-github-variable\`                  |
+| \`token\`       | String  | Yes      |         | [Repository Token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) |
+| \`logOldValue\` | Boolean | No       | \`true\`  | Enables/Disables logging of the previous variable value                                                         |
 
-The following are optional, to be provided when the value is Org scoped instead of a repository variable:
+The following are to be provided when the value is Org scoped instead of a repository variable:
 
 | Name                    | Type            | Description                                                                                                                                                                            |
 | ----------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
